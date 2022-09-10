@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//using System.Collections.Generic;
+using PagedList;
 
 namespace Student_Teacher_MVC.Controllers
 {
@@ -14,9 +14,11 @@ namespace Student_Teacher_MVC.Controllers
     {
         TeacherDbContext db = new TeacherDbContext();
         // GET: Student
-        public ActionResult Index()
+        public ActionResult Index(int ? page)
         {
-            var StudentList = db.Students.ToList();
+            var PageNumber = page ?? 1;
+            var PageSize = 3;
+            var StudentList = db.Students.OrderBy(model => model.ID).ToPagedList(PageNumber, PageSize);
             return View(StudentList);
         }
 

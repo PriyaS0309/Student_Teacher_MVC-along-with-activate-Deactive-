@@ -6,18 +6,21 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace Student_Teacher_MVC.Controllers
 {
    
-    [Authorize]
+    [Authorize(Roles ="admin")]
     public class TeacherController : Controller
     {
         TeacherDbContext db = new TeacherDbContext();
         // GET: Teacher
-        public ActionResult Index()
+        public ActionResult Index(int ? page)
         {
-            var TeacherList = db.Teachers.ToList();
+            var PageNumber = page ?? 1;
+            var PageSize = 3;
+            var TeacherList = db.Teachers.OrderBy(model => model.ID).ToPagedList(PageNumber, PageSize);
             return View(TeacherList);
         }
 
@@ -29,9 +32,9 @@ namespace Student_Teacher_MVC.Controllers
         [HttpPost]
         public ActionResult Create(Teacher teacher)
         {
-            var createdTeacher = db.Teachers.Add(teacher);
+            db.Teachers.Add(teacher);
             db.SaveChanges();
-            return View(createdTeacher);
+            return RedirectToAction("Index");
         }
 
        

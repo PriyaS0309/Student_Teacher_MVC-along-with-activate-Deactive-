@@ -1,4 +1,9 @@
-﻿@model IEnumerable<Student_Teacher_MVC.Models.Student>
+﻿@*@model IEnumerable<Student_Teacher_MVC.Models.Student>*@
+
+@using Student_Teacher_MVC.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Student>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -6,28 +11,35 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Teacher.Name)
+            Teacher Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Student Name
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Teacher.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-           
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<div></div>
+Page @(Model.PageCount <Model.PageNumber ? 0: Model.PageNumber)/@Model.PageCount)
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
