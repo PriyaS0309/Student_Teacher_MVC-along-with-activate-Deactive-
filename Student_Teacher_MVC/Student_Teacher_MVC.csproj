@@ -32,6 +32,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -138,21 +139,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202209080926268_addedTables.cs" />
-    <Compile Include="Migrations\202209080926268_addedTables.designer.cs">
-      <DependentUpon>202209080926268_addedTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202209081129075_addedIsActive.cs" />
-    <Compile Include="Migrations\202209081129075_addedIsActive.Designer.cs">
-      <DependentUpon>202209081129075_addedIsActive.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202209081140051_addedUsers.cs" />
-    <Compile Include="Migrations\202209081140051_addedUsers.Designer.cs">
-      <DependentUpon>202209081140051_addedUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202209100926371_added.cs" />
-    <Compile Include="Migrations\202209100926371_added.Designer.cs">
-      <DependentUpon>202209100926371_added.cs</DependentUpon>
+    <Compile Include="Migrations\202209131612174_addedTables.cs" />
+    <Compile Include="Migrations\202209131612174_addedTables.Designer.cs">
+      <DependentUpon>202209131612174_addedTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Student.cs" />
@@ -208,17 +197,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202209080926268_addedTables.resx">
-      <DependentUpon>202209080926268_addedTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209081129075_addedIsActive.resx">
-      <DependentUpon>202209081129075_addedIsActive.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209081140051_addedUsers.resx">
-      <DependentUpon>202209081140051_addedUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209100926371_added.resx">
-      <DependentUpon>202209100926371_added.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202209131612174_addedTables.resx">
+      <DependentUpon>202209131612174_addedTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -10,16 +10,20 @@ using PagedList;
 
 namespace Student_Teacher_MVC.Controllers
 {
+   // [Authorize(Roles = "admin,user")]
     public class StudentController : Controller
     {
         TeacherDbContext db = new TeacherDbContext();
         // GET: Student
-        public ActionResult Index(int ? page)
+        public ActionResult Index()
         {
-            var PageNumber = page ?? 1;
-            var PageSize = 3;
-            var StudentList = db.Students.OrderBy(model => model.ID).ToPagedList(PageNumber, PageSize);
-            return View(StudentList);
+            bool a = true;
+            //var PageNumber = page ?? 1;
+            //var PageSize = 3;
+            //var StudentList = db.Students.OrderBy(model => model.ID).ToPagedList(PageNumber, PageSize);
+            db.Students.ToList();
+           var student = db.Students.Include(c => c.Teacher).Where(c => c.Teacher.IsActiveOrNot.Equals(a)).ToList();
+            return View(student);
         }
 
         public ActionResult Create()
@@ -33,7 +37,7 @@ namespace Student_Teacher_MVC.Controllers
         {
             db.Students.Add(student);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Student");
         }
 
         public ActionResult Edit(int id)

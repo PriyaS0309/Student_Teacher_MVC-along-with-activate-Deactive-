@@ -12,10 +12,8 @@ namespace Student_Teacher_MVC.Models
         [Key]
         public int ID { get; set; }
         public string Name { get; set; }
-        public virtual int  Teacher_ID { get; set; }
-        [ForeignKey("Teacher_ID")]
+        public virtual int Teacher_ID { get; set; }
+       [ForeignKey("Teacher_ID")]
         public virtual Teacher Teacher { get; set; }
-
-        public bool IsActive { get; set; }
     }
 }

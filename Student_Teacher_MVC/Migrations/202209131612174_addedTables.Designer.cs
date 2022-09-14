@@ -7,13 +7,13 @@ namespace Student_Teacher_MVC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addedUsers : IMigrationMetadata
+    public sealed partial class addedTables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedUsers));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addedTables));
         
         string IMigrationMetadata.Id
         {
-            get { return "202209081140051_addedUsers"; }
+            get { return "202209131612174_addedTables"; }
         }
         
         string IMigrationMetadata.Source

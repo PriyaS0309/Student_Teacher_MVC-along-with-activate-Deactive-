@@ -42,7 +42,6 @@ namespace Student_Teacher_MVC.Models
             using(var context=new TeacherDbContext())
             {
                 var result = (from user in context.Users where user.Username == username select user.Role).ToArray();
-
                 return result;
             }
              

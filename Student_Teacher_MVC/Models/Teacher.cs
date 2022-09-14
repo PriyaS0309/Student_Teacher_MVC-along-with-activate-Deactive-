@@ -8,9 +8,11 @@ namespace Student_Teacher_MVC.Models
 {
     public class Teacher
     {
-        [Key]
+       [Key]
         public int ID { get; set; }
         public string Name { get; set; }
+
+        public bool IsActiveOrNot { get; set; }
 
        
     }
